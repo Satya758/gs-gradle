@@ -1,8 +1,17 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 
 mainClassName = 'hello.HelloWorld'
+
+shadowJar {
+   zip64 true
+}
 
 // tag::repositories[]
 repositories { 
@@ -25,7 +34,7 @@ dependencies {
     implementation "joda-time:joda-time:2.2"
     testImplementation "junit:junit:4.12"
 
-    implementation "com.chuusai:shapeles_2.13s:2.3.3"
+    implementation("com.chuusai:shapeless_2.13:2.3.3")
     implementation("commons-beanutils:commons-beanutils:1.9.4")
     implementation("commons-validator:commons-validator:1.6")
     implementation("ch.qos.logback:logback-classic:1.2.3")
@@ -101,19 +110,13 @@ dependencies {
     implementation("com.sun.xml.bind:jaxb-impl:2.3.1")
     implementation("org.jacoco:org.jacoco.core:0.8.6")
 
-
-    implementation("com.sap.cloud.security.xsuaa:java-container-security:3.14.14")
     implementation("org.springframework.security:spring-security-web:5.6.0")
     implementation("javax.ws.rs:javax.ws.rs-api:2.1.1")
     implementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
-    implementation("com.sap.xs.auditlog:audit-java-client-api:2.0.16")
-    implementation("com.sap.xs.auditlog:audit-java-client-impl:2.0.16")
-    implementation("com.sap.xs.java:xs-env:1.8.5")
     implementation("io.opentracing:opentracing-api:0.33.0")
     implementation("io.opentracing:opentracing-noop:0.33.0")
     implementation("io.opentracing:opentracing-util:0.33.0")
     implementation("io.opentracing:opentracing-mock:0.33.0")
-    implementation("com.sap.core.jdsr:com.sap.js.passport.api:1.4.0")
 
     implementation("io.opentracing.contrib:opentracing-jms-1:0.1.0")
     implementation("com.solacesystems:sol-jms:10.0.0")
