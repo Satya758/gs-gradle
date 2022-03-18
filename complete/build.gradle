@@ -1,3 +1,8 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'application'
@@ -5,15 +10,15 @@ apply plugin: 'application'
 mainClassName = 'hello.HelloWorld'
 
 // tag::repositories[]
-repositories { 
-    mavenCentral() 
+repositories {
+    mavenCentral()
 }
 // end::repositories[]
 
 // tag::jar[]
 jar {
     archiveBaseName = 'gs-gradle'
-    archiveVersion =  '0.1.0'
+    archiveVersion = '0.1.0'
 }
 // end::jar[]
 
@@ -23,6 +28,8 @@ targetCompatibility = 1.8
 
 dependencies {
     implementation "joda-time:joda-time:2.2"
+    implementation "com.chuusai:shapeless_2.13:2.3.3"
+
     testImplementation "junit:junit:4.12"
 }
 // end::dependencies[]
